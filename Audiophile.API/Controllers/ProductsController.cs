@@ -1,4 +1,5 @@
 ﻿using Audiophile.Data;
+using Audiophile.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,25 +13,35 @@ namespace Audiophile.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly AudiophileContext _context;
+        private readonly IProductRepository _productRepository;
 
-        public ProductsController(AudiophileContext context)
+        public ProductsController(IProductRepository productRepository)
         {
-            _context = context;
+            _productRepository = productRepository;
         }
 
         [HttpGet]
-        public IActionResult GetProducts()
+        public async Task<IActionResult> GetProducts()
         {
-            var products = _context.Products.ToList();
+            var products = await _productRepository.GetAllProductsAsync();
+
             return Ok(products);
         }
 
         [HttpGet("id")]
-        public IActionResult GetProduct(int id)
+        public async Task<IActionResult> GetProduct(int id)
         {
-            var product = _context.Products.Find(id);
+            var product = await _productRepository.GetProductByIdAsync(id);
+
             return Ok(product);
+        }
+
+        [HttpGet("categories")]
+        public async Task<IActionResult> GetProductCategories()
+        {
+            var categories = await _productRepository.GetProductCategories();
+
+            return Ok(categories);
         }
     }
 }

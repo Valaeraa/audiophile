@@ -1,4 +1,5 @@
 using Audiophile.Data;
+using Audiophile.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,6 +40,8 @@ namespace Audiophile.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Audiophile.API", Version = "v1" });
             });
+
+            services.AddScoped<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
