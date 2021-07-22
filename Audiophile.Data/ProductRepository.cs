@@ -28,12 +28,5 @@ namespace Audiophile.Data
             
             return product;
         }
-
-        public async Task<IReadOnlyList<ProductCategory>> GetProductCategories()
-        {
-            var categories = await _context.ProductCategories.ToListAsync();
-
-            return categories;
-        }
     }
 }

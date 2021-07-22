@@ -34,13 +34,5 @@ namespace Audiophile.API.Controllers
 
             return Ok(product);
         }
-
-        [HttpGet("categories")]
-        public async Task<IActionResult> GetProductCategories()
-        {
-            var categories = await _productRepository.GetProductCategories();
-
-            return Ok(categories);
-        }
     }
 }

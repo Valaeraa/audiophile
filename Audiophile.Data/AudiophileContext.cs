@@ -10,6 +10,5 @@ namespace Audiophile.Data
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<ProductCategory> ProductCategories { get; set; }
     }
 }

@@ -8,6 +8,5 @@ namespace Audiophile.Domain.Interfaces
     {
         Task<Product> GetProductByIdAsync(int id);
         Task<IReadOnlyList<Product>> GetAllProductsAsync();
-        Task<IReadOnlyList<ProductCategory>> GetProductCategories(); 
     }
 }
