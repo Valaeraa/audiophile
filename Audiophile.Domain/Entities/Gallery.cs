@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Audiophile.Domain.Entities
 {
-    public class ProductCategory
+    public class Gallery
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public Image First { get; set; }
+        public Image Second { get; set; }
+        public Image Third { get; set; }
     }
 }
