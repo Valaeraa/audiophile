@@ -1,5 +1,4 @@
-﻿using Audiophile.Data;
-using Audiophile.Domain.Interfaces;
+﻿using Audiophile.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
