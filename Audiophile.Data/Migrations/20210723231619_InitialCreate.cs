@@ -62,13 +62,13 @@ namespace Audiophile.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Slug = table.Column<string>(type: "TEXT", nullable: true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
-                    ImageId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ImageId = table.Column<int>(type: "INTEGER", nullable: false),
                     Category = table.Column<string>(type: "TEXT", nullable: true),
                     New = table.Column<bool>(type: "INTEGER", nullable: false),
                     Price = table.Column<decimal>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     Features = table.Column<string>(type: "TEXT", nullable: true),
-                    GalleryId = table.Column<int>(type: "INTEGER", nullable: true)
+                    GalleryId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -78,13 +78,13 @@ namespace Audiophile.Data.Migrations
                         column: x => x.GalleryId,
                         principalTable: "Galleries",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Products_Images_ImageId",
                         column: x => x.ImageId,
                         principalTable: "Images",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

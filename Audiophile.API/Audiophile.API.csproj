@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Remove="audiophile.db-shm" />
+    <None Remove="audiophile.db-wal" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Audiophile.Data.Migrations
 {
     [DbContext(typeof(AudiophileContext))]
-    [Migration("20210723135643_InitialCreate")]
+    [Migration("20210723231619_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -128,10 +128,10 @@ namespace Audiophile.Data.Migrations
                     b.Property<string>("Features")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("GalleryId")
+                    b.Property<int>("GalleryId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ImageId")
+                    b.Property<int>("ImageId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
@@ -200,11 +200,15 @@ namespace Audiophile.Data.Migrations
                 {
                     b.HasOne("Audiophile.Domain.Entities.Gallery", "Gallery")
                         .WithMany()
-                        .HasForeignKey("GalleryId");
+                        .HasForeignKey("GalleryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Audiophile.Domain.Entities.Image", "Image")
                         .WithMany()
-                        .HasForeignKey("ImageId");
+                        .HasForeignKey("ImageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Gallery");
 
