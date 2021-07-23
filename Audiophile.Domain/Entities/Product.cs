@@ -13,6 +13,7 @@ namespace Audiophile.Domain.Entities
 
         [JsonPropertyName("image")]
         public Image Image { get; set; }
+        public int ImageId { get; set; }
 
         [JsonPropertyName("category")]
         public string Category { get; set; }
@@ -34,6 +35,7 @@ namespace Audiophile.Domain.Entities
 
         [JsonPropertyName("gallery")]
         public Gallery Gallery { get; set; }
+        public int GalleryId { get; set; }
 
         [JsonPropertyName("others")]
         public List<Other> Others { get; set; }
