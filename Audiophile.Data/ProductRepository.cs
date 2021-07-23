@@ -17,14 +17,30 @@ namespace Audiophile.Data
 
         public async Task<IReadOnlyList<Product>> GetAllProductsAsync()
         {
-            var products = await _context.Products.Include(x => x.Category).ToListAsync();
+            var products = await _context.Products
+                .Include(x => x.Image)
+                .Include(x => x.Includes)
+                .Include(x => x.Gallery.First)
+                .Include(x => x.Gallery.Second)
+                .Include(x => x.Gallery.Third)
+                .Include(x => x.Others)
+                .ThenInclude(x => x.Image)
+                .ToListAsync();
 
             return products;
         }
 
         public async Task<Product> GetProductByIdAsync(int id)
         {
-            var product = await _context.Products.Include(x => x.Category).FirstOrDefaultAsync(x => x.Id == id);
+            var product = await _context.Products
+                .Include(x => x.Image)
+                .Include(x => x.Includes)
+                .Include(x => x.Gallery.First)
+                .Include(x => x.Gallery.Second)
+                .Include(x => x.Gallery.Third)
+                .Include(x => x.Others)
+                .ThenInclude(x => x.Image)
+                .FirstOrDefaultAsync(x => x.Id == id);
             
             return product;
         }
