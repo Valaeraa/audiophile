@@ -16,63 +16,11 @@ namespace Audiophile.Data
         {
             try
             {
-                var jsonData = File.ReadAllText("../Audiophile.Data/SeedData/data.json");
-                var products = JsonSerializer.Deserialize<List<Product>>(jsonData);
-                var images = new List<Image>();
-                var includes = new List<Include>();
-                var galleries = new List<Gallery>();
-                var others = new List<Other>();
-
-                foreach (var item in products)
-                {
-                    images.Add(item.Image);
-                    includes.AddRange(item.Includes);
-                    galleries.Add(item.Gallery);
-                    others.AddRange(item.Others);
-                }
-
-                if (!context.Images.Any())
-                {
-                    foreach (var image in images)
-                    {
-                        context.Images.Add(image);
-                    }
-
-                    await context.SaveChangesAsync();
-                }
-
-                if (!context.Includes.Any())
-                {
-                    foreach (var include in includes)
-                    {
-                        context.Includes.Add(include);
-                    }
-
-                    await context.SaveChangesAsync();
-                }
-
-                if (!context.Galleries.Any())
-                {
-                    foreach (var gallery in galleries)
-                    {
-                        context.Galleries.Add(gallery);
-                    }
-
-                    await context.SaveChangesAsync();
-                }
-
-                if (!context.Others.Any())
-                {
-                    foreach (var other in others)
-                    {
-                        context.Others.Add(other);
-                    }
-
-                    await context.SaveChangesAsync();
-                }
-
                 if (!context.Products.Any())
                 {
+                    var jsonData = File.ReadAllText("../Audiophile.Data/SeedData/data.json");
+                    var products = JsonSerializer.Deserialize<List<Product>>(jsonData);
+
                     foreach (var product in products)
                     {
                         context.Products.Add(product);
