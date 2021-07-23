@@ -3,14 +3,16 @@ using System;
 using Audiophile.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Audiophile.Data.Migrations
 {
     [DbContext(typeof(AudiophileContext))]
-    partial class AudiophileContextModelSnapshot : ModelSnapshot
+    [Migration("20210723135643_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
