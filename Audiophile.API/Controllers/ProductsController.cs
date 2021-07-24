@@ -1,4 +1,7 @@
-﻿using Audiophile.Domain.Interfaces;
+﻿using Audiophile.API.Dtos;
+using Audiophile.Domain.Entities;
+using Audiophile.Domain.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,10 +16,12 @@ namespace Audiophile.API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
+        private readonly IMapper _mapper;
 
-        public ProductsController(IProductRepository productRepository)
+        public ProductsController(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -24,7 +29,9 @@ namespace Audiophile.API.Controllers
         {
             var products = await _productRepository.GetAllProductsAsync();
 
-            return Ok(products);
+            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products);
+
+            return Ok(productsDto);
         }
 
         [HttpGet("id")]
@@ -32,7 +39,9 @@ namespace Audiophile.API.Controllers
         {
             var product = await _productRepository.GetProductByIdAsync(id);
 
-            return Ok(product);
+            var productDto = _mapper.Map<Product, ProductDto>(product);
+
+            return Ok(productDto);
         }
     }
 }
