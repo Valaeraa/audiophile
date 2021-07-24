@@ -1,4 +1,5 @@
 using Audiophile.API.Extensions;
+using Audiophile.API.Helpers;
 using Audiophile.Data;
 using Audiophile.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -36,6 +37,8 @@ namespace Audiophile.API
                 options.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddAutoMapper(typeof(MappingProfiles));
+
             services.AddApplicationServices();
 
             services.AddSwaggerGen(c =>
@@ -57,6 +60,8 @@ namespace Audiophile.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
