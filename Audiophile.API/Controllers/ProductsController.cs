@@ -34,7 +34,7 @@ namespace Audiophile.API.Controllers
             return Ok(productsDto);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
             var product = await _productRepository.GetProductByIdAsync(id);
