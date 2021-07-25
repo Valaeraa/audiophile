@@ -1,3 +1,42 @@
-nav {
-  background-color: #101010;
+@import "abstracts/variables";
+
+.navbar {
+  background-color: $clr-dark-800;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggler {
+  cursor: pointer;
+}
+
+.nav {
+  display: none;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  color: $clr-light-100;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  line-height: 1.563rem;
+
+  &:hover,
+  &:focus {
+    color: $clr-accent-400;
+  }
 }
