@@ -40,3 +40,18 @@
     color: $clr-accent-400;
   }
 }
+
+@media (min-width: 992px) {
+  .navbar-wrapper {
+    width: 80%;
+  }
+
+  .navbar-toggler {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    gap: 0 2em;
+  }
+}
