@@ -16,10 +16,25 @@
 
 .navbar-toggler {
   cursor: pointer;
+  z-index: 10;
 }
 
 .nav {
   display: none;
+}
+
+.toggle {
+  position: absolute;
+  background-color: $clr-dark-800;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
 
 .nav-item {

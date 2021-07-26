@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="navbar-wrapper">
-    <div class="navbar-toggler">
+    <div class="navbar-toggler" (click)="toggleNav()">
       <img
         src="/assets/shared/tablet/icon-hamburger.svg"
         alt="hamburger icon"
@@ -15,7 +15,7 @@
       />
     </a>
 
-    <ul class="nav">
+    <ul class="nav" [ngClass]="isOpen ? 'toggle' : ''">
       <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Headphones</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Speakers</a></li>
