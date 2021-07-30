@@ -8,19 +8,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 10vh;
-  width: 90%;
+  min-height: 12.5vh;
+  width: $mobile-width;
   margin: 0 auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .navbar-toggler {
   cursor: pointer;
-  z-index: 10;
+  z-index: 11;
 }
 
 .nav {
   display: none;
+  transition: all 0.5s ease-in-out;
 }
 
 .toggle {
@@ -35,6 +36,7 @@
   justify-content: center;
   align-items: center;
   gap: 1em;
+  z-index: 10;
 }
 
 .nav-item {
