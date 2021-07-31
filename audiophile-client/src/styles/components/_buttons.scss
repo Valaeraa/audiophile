@@ -17,13 +17,42 @@
   }
 }
 
-.btn-accent {
-}
-
 .btn-light {
   border: black 1px solid;
   --bg: white;
   --fg: black;
   --hover-bg: black;
   --hover-fg: white;
+}
+
+.btn-arrow {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  font-weight: $fw-bold;
+  color: black;
+  opacity: 0.5;
+  letter-spacing: 1px;
+  position: relative;
+  margin-bottom: 1em;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(400%, -50%);
+    background-image: url("/assets/shared/desktop/icon-arrow-right.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 7px;
+    height: 11px;
+  }
+
+  &:focus,
+  &:hover {
+    color: $clr-accent-400;
+    opacity: 1;
+  }
 }
