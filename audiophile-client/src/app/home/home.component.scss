@@ -94,3 +94,30 @@ img {
   margin-top: 5em;
   margin-bottom: 1.2em;
 }
+
+@media (min-width: 768px) {
+  .product {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("../../assets/home/tablet/image-header.jpg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 7em;
+  }
+
+  .product-wrapper {
+    margin-bottom: 2em;
+  }
+
+  .product__title {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    letter-spacing: 2px;
+    margin: 0.5em 0;
+  }
+
+  .category-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+  }
+}

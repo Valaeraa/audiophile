@@ -58,6 +58,12 @@
   }
 }
 
+@media (min-width: 768px) {
+  .navbar-wrapper {
+    min-height: 10vh;
+  }
+}
+
 @media (min-width: 992px) {
   .navbar-wrapper {
     width: 80%;
