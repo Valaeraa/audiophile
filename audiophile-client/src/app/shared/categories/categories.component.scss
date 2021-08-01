@@ -1,0 +1,54 @@
+@import "abstracts/variables";
+
+// @import "base/typography";
+
+@import "components/buttons";
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.category {
+  padding: 6em 0;
+}
+
+.category-wrapper {
+  display: grid;
+  gap: 4em;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  border-radius: 0.5em;
+  position: relative;
+  padding: 1em 0;
+}
+
+.card__img {
+  position: absolute;
+  max-width: 10em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -89%);
+}
+
+.card__title {
+  font-size: 0.9375rem;
+  letter-spacing: 0.066875rem;
+  font-weight: $fw-bold;
+  text-transform: uppercase;
+  margin-top: 5em;
+  margin-bottom: 1.2em;
+}
+
+@media (min-width: 768px) {
+  .category-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+  }
+}

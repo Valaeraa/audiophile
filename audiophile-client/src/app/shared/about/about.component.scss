@@ -1,0 +1,72 @@
+@import "abstracts/variables";
+
+article {
+  margin-bottom: 10em;
+  text-align: center;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: $fw-bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1.5em auto;
+}
+
+.accent {
+  color: $clr-accent-400;
+}
+
+.text {
+  font-size: 0.9375rem;
+  font-weight: $fw-light;
+  line-height: 1.5625rem;
+  color: black;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  article {
+    margin-bottom: 5em;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+    letter-spacing: 1.43px;
+    max-width: 20ch;
+  }
+}
+
+@media (min-width: 992px) {
+  article {
+    display: grid;
+    gap: 0 6em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    margin-right: 0;
+  }
+
+  div {
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    padding: 4em 0;
+  }
+
+  .title {
+    margin: 1em auto;
+  }
+}
