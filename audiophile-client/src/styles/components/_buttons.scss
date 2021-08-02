@@ -13,7 +13,7 @@
   &:hover,
   &:focus {
     background-color: var(--hover-bg, $clr-accent-300);
-    color: var(--hover-fg);
+    color: var(--hover-fg, white);
   }
 }
 
