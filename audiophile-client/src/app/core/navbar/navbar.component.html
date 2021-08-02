@@ -16,8 +16,22 @@
     </a>
 
     <ul class="nav" [ngClass]="isOpen ? 'toggle' : ''">
-      <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Headphones</a></li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/']"
+          routerLinkActive="router-link-active"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/headphones']"
+          routerLinkActive="router-link-active"
+          >Headphones</a
+        >
+      </li>
       <li class="nav-item"><a class="nav-link" href="#">Speakers</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Earphones</a></li>
     </ul>
