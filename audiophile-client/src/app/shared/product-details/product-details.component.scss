@@ -1,0 +1,41 @@
+@import "abstracts/variables";
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 1em;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.btn-text {
+  font-size: 0.8125rem;
+  font-weight: $fw-bold;
+  background: #f1f1f1;
+  margin: 0;
+  padding: 1.2em;
+  z-index: -1;
+}
+
+.btn-group {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 0 1em;
+  color: rgba($color: #000000, $alpha: 0.25);
+
+  &:hover,
+  &:focus {
+    color: $clr-accent-400;
+  }
+
+  &:focus {
+    outline: $clr-accent-400 1px solid;
+  }
+}

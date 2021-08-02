@@ -2,10 +2,23 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriesComponent } from './categories/categories.component';
 import { AboutComponent } from './about/about.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { HeadphonesRoutingModule } from '../headphones/headphones-routing.module';
 
 @NgModule({
-  declarations: [CategoriesComponent, AboutComponent],
-  imports: [CommonModule],
-  exports: [CategoriesComponent, AboutComponent],
+  declarations: [
+    CategoriesComponent,
+    AboutComponent,
+    ProductComponent,
+    ProductDetailsComponent,
+  ],
+  imports: [CommonModule, HeadphonesRoutingModule],
+  exports: [
+    CategoriesComponent,
+    AboutComponent,
+    ProductComponent,
+    ProductDetailsComponent,
+  ],
 })
 export class SharedModule {}
