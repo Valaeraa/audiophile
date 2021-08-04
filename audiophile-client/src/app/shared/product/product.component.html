@@ -1,31 +1,20 @@
 <article class="container product">
   <picture>
-    <source
-      media="(min-width: 768px)"
-      srcset="/assets/category-headphones/tablet/image-xx99-mark-two.jpg"
-    />
-    <source
-      media="(min-width: 992px)"
-      srcset="/assets/category-headphones/desktop/image-xx99-mark-two.jpg"
-    />
-    <img
-      src="/assets/category-headphones/mobile/image-xx99-mark-two.jpg"
-      alt="best gear image"
-    />
+    <source media="(min-width: 768px)" srcset="{{product.image.tablet}}" />
+    <source media="(min-width: 992px)" srcset="{{product.image.desktop}}" />
+    <img src="{{ product.image.mobile }}" alt="best gear image" />
   </picture>
 
   <div>
-    <p class="product__new">New Product</p>
-    <h2 class="product__title">XX99 Mark II Headphones</h2>
+    <p class="product__new" *ngIf="product.new == true">New Product</p>
+    <h2 class="product__title">{{ product.name }}</h2>
     <p class="product__text">
-      The new XX99 Mark II headphones is the pinnacle of pristine audio. It
-      redefines your premium headphone experience by reproducing the balanced
-      depth and precision of studio-quality sound.
+      {{ product.description }}
     </p>
 
     <a
       class="btn"
-      [routerLink]="['/headphones/1']"
+      routerLink="/headphones/{{ product.id }}"
       routerLinkActive="router-link-active"
       >See Product</a
     >
