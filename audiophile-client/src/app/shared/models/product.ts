@@ -34,16 +34,16 @@ export interface IProduct {
       tablet: string;
       desktop: string;
     };
-    others: [
-      {
-        slug: string;
-        name: string;
-        image: {
-          mobile: string;
-          tablet: string;
-          desktop: string;
-        };
-      }
-    ];
   };
+  others: [
+    {
+      slug: string;
+      name: string;
+      image: {
+        mobile: string;
+        tablet: string;
+        desktop: string;
+      };
+    }
+  ];
 }
