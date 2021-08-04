@@ -1,36 +1,26 @@
 <section class="container">
-  <a class="btn-back" href="">Go Back</a>
+  <a
+    class="btn-back"
+    [routerLink]="['/headphones']"
+    routerLinkActive="router-link-active"
+    >Go Back</a
+  >
 
   <div class="product">
     <picture>
-      <source
-        media="(min-width: 768px)"
-        srcset="
-          /assets/product-xx99-mark-two-headphones/tablet/image-product.jpg
-        "
-      />
-      <source
-        media="(min-width: 992px)"
-        srcset="
-          /assets/product-xx99-mark-two-headphones/desktop/image-product.jpg
-        "
-      />
-      <img
-        src="/assets/product-xx99-mark-two-headphones/mobile/image-product.jpg"
-        alt="best gear image"
-      />
+      <source media="(min-width: 768px)" srcset="{{product.image.tablet}}" />
+      <source media="(min-width: 992px)" srcset="{{product.image.desktop}}" />
+      <img src="{{ product.image.mobile }}" alt="best gear image" />
     </picture>
 
     <div>
-      <p class="product__new">New Product</p>
-      <h2 class="product__title">XX99 Mark II Headphones</h2>
+      <p class="product__new" *ngIf="product.new === true">New Product</p>
+      <h2 class="product__title">{{ product.name }}</h2>
       <p class="product__descrption">
-        The new XX99 Mark II headphones is the pinnacle of pristine audio. It
-        redefines your premium headphone experience by reproducing the balanced
-        depth and precision of studio-quality sound.
+        {{ product.description }}
       </p>
 
-      <h6 class="product__price">$ 2,999</h6>
+      <h6 class="product__price">{{ product.price | currency }}</h6>
 
       <div class="btn-wrapper">
         <div class="d-flex">
@@ -47,31 +37,14 @@
   <div class="features">
     <h3 class="product__subtitle">Features</h3>
     <p class="product__features">
-      Featuring a genuine leather head strap and premium earcups, these
-      headphones deliver superior comfort for those who like to enjoy endless
-      listening. It includes intuitive controls designed for any situation.
-      Whether you’re taking a business call or just in your own personal space,
-      the auto on/off and pause features ensure that you’ll never miss a beat.
-    </p>
-
-    <p class="product__features">
-      The advanced Active Noise Cancellation with built-in equalizer allow you
-      to experience your audio world on your terms. It lets you enjoy your audio
-      in peace, but quickly interact with your surroundings when you need to.
-      Combined with Bluetooth 5. 0 compliant connectivity and 17 hour battery
-      life, the XX99 Mark II headphones gives you superior sound, cutting-edge
-      technology, and a modern design aesthetic.
+      {{ product.features }}
     </p>
   </div>
 
   <div class="included">
     <h3 class="product__subtitle">In The Box</h3>
-    <ul>
-      <li>1x Headphone Unit</li>
-      <li>2x Replacement Earcups</li>
-      <li>1x User Manual</li>
-      <li>1x 3.5mm 5m Audio Cable</li>
-      <li>1x Travel Bag</li>
+    <ul *ngFor="let item of product.includes">
+      <li>x{{ item.quantity }} {{ item.item }}</li>
     </ul>
   </div>
 
