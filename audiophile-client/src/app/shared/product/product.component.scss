@@ -1,3 +1,5 @@
+@import "abstracts/variables";
+
 img {
   display: block;
   max-width: 100%;
@@ -5,4 +7,28 @@ img {
 
 .product {
   text-align: center;
+  margin: 4em auto;
+}
+
+.product__new {
+  font-size: 0.875rem;
+  font-weight: $fw-regular;
+  letter-spacing: 0.625rem;
+  text-transform: uppercase;
+  color: $clr-accent-400;
+  margin: 2em auto;
+}
+
+.product__title {
+  font-size: 1.75rem;
+  font-weight: $fw-bold;
+  letter-spacing: 1px;
+  margin: 1em auto;
+}
+
+.product__text {
+  font-size: 0.9375;
+  font-weight: $fw-light;
+  line-height: 1.5625rem;
+  margin-bottom: 1.5em;
 }
