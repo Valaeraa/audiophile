@@ -43,5 +43,15 @@ namespace Audiophile.API.Controllers
 
             return Ok(productDto);
         }
+
+        [HttpGet("headphones")]
+        public async Task<IActionResult> GetHeadphones()
+        {
+            var products = await _productRepository.GetHeadphones();
+
+            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products);
+
+            return Ok(productsDto);
+        }
     }
 }

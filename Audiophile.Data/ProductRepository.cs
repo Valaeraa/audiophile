@@ -2,6 +2,7 @@
 using Audiophile.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Audiophile.Data
@@ -18,6 +19,22 @@ namespace Audiophile.Data
         public async Task<IReadOnlyList<Product>> GetAllProductsAsync()
         {
             var products = await _context.Products
+                .Include(x => x.Image)
+                .Include(x => x.Includes)
+                .Include(x => x.Gallery.First)
+                .Include(x => x.Gallery.Second)
+                .Include(x => x.Gallery.Third)
+                .Include(x => x.Others)
+                .ThenInclude(x => x.Image)
+                .ToListAsync();
+
+            return products;
+        }
+
+        public async Task<IReadOnlyList<Product>> GetHeadphones()
+        {
+            var products = await _context.Products
+                .Where(x => x.Category == "headphones")
                 .Include(x => x.Image)
                 .Include(x => x.Includes)
                 .Include(x => x.Gallery.First)
