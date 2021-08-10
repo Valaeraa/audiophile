@@ -1,4 +1,5 @@
-@import "abstracts/variables";
+// @import "abstracts/variables";
+@import "main";
 
 article {
   margin-bottom: 10em;
@@ -9,7 +10,7 @@ img {
   display: block;
   object-fit: cover;
   max-width: 100%;
-  border-radius: 8px;
+  border-radius: 0.5em;
 }
 
 .title {
