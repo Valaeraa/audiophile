@@ -25,6 +25,12 @@
   --hover-fg: white;
 }
 
+.btn-dark {
+  --bg: black;
+  --fg: white;
+  --hover-bg: #4c4c4c;
+}
+
 .btn-arrow {
   display: inline-block;
   text-decoration: none;

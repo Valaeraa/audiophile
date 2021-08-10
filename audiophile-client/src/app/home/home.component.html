@@ -1,5 +1,5 @@
 <section>
-  <div class="product">
+  <article class="product">
     <div class="product-wrapper">
       <p class="product__new">New Product</p>
       <h1 class="product__title">XX99 Mark II Headphones</h1>
@@ -15,9 +15,41 @@
         >See Product</a
       >
     </div>
-  </div>
+  </article>
 
   <app-categories></app-categories>
+
+  <article class="container product--orange">
+    <img
+      class="pattern"
+      src="/assets/home/desktop/pattern-circles.svg"
+      alt=""
+    />
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcset="/assets/home/tablet/image-speaker-zx9.png"
+      />
+      <source
+        media="(min-width: 992px)"
+        srcset="/assets/home/desktop/image-speaker-zx9.png"
+      />
+      <img
+        class="product__img"
+        src="/assets/home/mobile/image-speaker-zx9.png"
+        alt="best gear image"
+      />
+    </picture>
+
+    <h2 class="product__title">ZX9 Speaker</h2>
+
+    <p class="product__text">
+      Upgrade to premium speakers that are phenomenally built to deliver truly
+      remarkable sound.
+    </p>
+
+    <a href="#" class="btn btn-dark">See Product</a>
+  </article>
 
   <app-about></app-about>
 </section>

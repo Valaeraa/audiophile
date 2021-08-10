@@ -3,15 +3,11 @@
 @import "base/typography";
 
 @import "components/buttons";
+@import "main";
 
 img {
   display: block;
   max-width: 100%;
-}
-
-.container {
-  width: 90%;
-  margin: 0 auto;
 }
 
 .product {
@@ -56,6 +52,38 @@ img {
   margin: 0 auto;
   color: rgba($color: #fff, $alpha: 0.75);
   margin-bottom: 2em;
+}
+
+.product--orange {
+  // background: url("/assets/home/desktop/pattern-circles.svg");
+  // background-position: center 100%;
+  // background-repeat: no-repeat;
+  // background-size: 170%;
+  padding: 2em 0;
+  margin-bottom: 4em;
+  background-color: $clr-accent-400;
+  text-align: center;
+  border-radius: 0.5em;
+  position: relative;
+  // z-index: -10;
+}
+
+.pattern {
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  top: -20%;
+  // z-index: -5;
+}
+
+.product--orange .product__title {
+  color: white;
+}
+
+.product__img {
+  width: 30%;
+  margin: 2em auto;
 }
 
 @media (min-width: 768px) {
