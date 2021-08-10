@@ -37,7 +37,7 @@ img {
   font-weight: $fw-regular;
   letter-spacing: 0.625rem;
   text-transform: uppercase;
-  opacity: 0.5;
+  color: rgba($color: #fff, $alpha: 0.5);
 }
 
 .product__title {
@@ -54,7 +54,7 @@ img {
   line-height: 1.563rem;
   max-width: 40ch;
   margin: 0 auto;
-  opacity: 0.75;
+  color: rgba($color: #fff, $alpha: 0.75);
   margin-bottom: 2em;
 }
 

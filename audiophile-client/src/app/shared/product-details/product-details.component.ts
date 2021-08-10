@@ -18,11 +18,13 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProduct();
-    console.log(this.product);
   }
 
   loadProduct(): void {
-    const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    const id = this.activatedRoute.snapshot.paramMap
+      .get('id-slug')
+      ?.slice(0, 1) as string;
+
     const idValue = +id;
     this.headphonesService.GetHeadphonesById(idValue).subscribe(
       (product) => {

@@ -1,8 +1,10 @@
 @import "abstracts/variables";
 
 img {
-  display: block;
+  // display: block;
   max-width: 100%;
+  object-fit: cover;
+  // margin: 0 auto;
 }
 
 .product {
@@ -31,4 +33,44 @@ img {
   font-weight: $fw-light;
   line-height: 1.5625rem;
   margin-bottom: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .product__title {
+    font-size: 2.5rem;
+  }
+
+  .product__text {
+    max-width: 60ch;
+    margin: 1.5em auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .product {
+    text-align: left;
+    display: flex;
+    gap: 2em;
+  }
+
+  img {
+    min-width: 100%;
+    min-height: 440px;
+    object-fit: cover;
+    object-position: center;
+    margin: 0 auto;
+  }
+
+  .product__text {
+    margin: 1.5em 0;
+  }
+
+  .product__body {
+    width: 100%;
+    margin: auto;
+  }
+
+  .reverse {
+    order: 2;
+  }
 }

@@ -16,7 +16,7 @@
     </a>
 
     <ul class="nav" [ngClass]="isOpen ? 'toggle' : ''">
-      <li class="nav-item">
+      <li class="nav-item" (click)="closeMenu()">
         <a
           class="nav-link"
           [routerLink]="['/']"
@@ -24,7 +24,7 @@
           >Home</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" (click)="closeMenu()">
         <a
           class="nav-link"
           [routerLink]="['/headphones']"

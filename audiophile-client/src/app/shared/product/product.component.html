@@ -1,11 +1,11 @@
 <article class="container product">
-  <picture>
-    <source media="(min-width: 768px)" srcset="{{product.image.tablet}}" />
-    <source media="(min-width: 992px)" srcset="{{product.image.desktop}}" />
-    <img src="{{ product.image.mobile }}" alt="best gear image" />
+  <picture *ngIf="product.display">
+    <source media="(min-width: 768px)" srcset="{{product.display.tablet}}" />
+    <source media="(min-width: 992px)" srcset="{{product.display.desktop}}" />
+    <img src="{{ product.display.mobile }}" alt="best gear image" />
   </picture>
 
-  <div>
+  <div class="product__body">
     <p class="product__new" *ngIf="product.new == true">New Product</p>
     <h2 class="product__title">{{ product.name }}</h2>
     <p class="product__text">
@@ -14,7 +14,7 @@
 
     <a
       class="btn"
-      routerLink="/headphones/{{ product.id }}"
+      routerLink="/headphones/{{ product.id }}-{{ product.slug }}"
       routerLinkActive="router-link-active"
       >See Product</a
     >

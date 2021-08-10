@@ -7,13 +7,13 @@
   >
 
   <div class="product">
-    <picture>
+    <picture class="product__img">
       <source media="(min-width: 768px)" srcset="{{product.image.tablet}}" />
       <source media="(min-width: 992px)" srcset="{{product.image.desktop}}" />
       <img src="{{ product.image.mobile }}" alt="best gear image" />
     </picture>
 
-    <div>
+    <div class="product__body">
       <p class="product__new" *ngIf="product.new === true">New Product</p>
       <h2 class="product__title">{{ product.name }}</h2>
       <p class="product__descrption">
@@ -43,37 +43,41 @@
 
   <div class="included">
     <h3 class="product__subtitle">In The Box</h3>
-    <ul *ngFor="let item of product.includes">
-      <li>x{{ item.quantity }} {{ item.item }}</li>
-    </ul>
+    <div>
+      <ul class="included__list" *ngFor="let item of product.includes">
+        <li>x{{ item.quantity }} {{ item.item }}</li>
+      </ul>
+    </div>
   </div>
 
   <div class="gallery">
-    <picture>
-      <source
-        media="(min-width: 768px)"
-        srcset="{{product.gallery.first.tablet}}"
-      />
-      <source
-        media="(min-width: 992px)"
-        srcset="{{product.gallery.first.desktop}}"
-      />
-      <img src="{{ product.gallery.first.mobile }}" alt="best gear image" />
-    </picture>
+    <div class="gallery__wrapper">
+      <picture class="top-left">
+        <source
+          media="(min-width: 768px)"
+          srcset="{{product.gallery.first.tablet}}"
+        />
+        <source
+          media="(min-width: 992px)"
+          srcset="{{product.gallery.first.desktop}}"
+        />
+        <img src="{{ product.gallery.first.mobile }}" alt="best gear image" />
+      </picture>
 
-    <picture>
-      <source
-        media="(min-width: 768px)"
-        srcset="{{product.gallery.second.tablet}}"
-      />
-      <source
-        media="(min-width: 992px)"
-        srcset="{{product.gallery.second.desktop}}"
-      />
-      <img src="{{ product.gallery.second.mobile }}" alt="best gear image" />
-    </picture>
+      <picture class="bottom-left">
+        <source
+          media="(min-width: 768px)"
+          srcset="{{product.gallery.second.tablet}}"
+        />
+        <source
+          media="(min-width: 992px)"
+          srcset="{{product.gallery.second.desktop}}"
+        />
+        <img src="{{ product.gallery.second.mobile }}" alt="best gear image" />
+      </picture>
+    </div>
 
-    <picture>
+    <picture class="right">
       <source
         media="(min-width: 768px)"
         srcset="{{product.gallery.third.tablet}}"
@@ -89,16 +93,18 @@
   <div class="others">
     <h3 class="product__subtitle">You may also like</h3>
 
-    <div class="other" *ngFor="let item of product.others">
-      <picture>
-        <source media="(min-width: 768px)" srcset="{{item.image.tablet}}" />
-        <source media="(min-width: 992px)" srcset="{{item.image.desktop}}" />
-        <img src="{{ item.image.mobile }}" alt="best gear image" />
-      </picture>
+    <div class="others-wrapper">
+      <div class="other" *ngFor="let item of product.others">
+        <picture>
+          <source media="(min-width: 768px)" srcset="{{item.image.tablet}}" />
+          <source media="(min-width: 992px)" srcset="{{item.image.desktop}}" />
+          <img src="{{ item.image.mobile }}" alt="best gear image" />
+        </picture>
 
-      <h5 class="other__title">{{ item.name }}</h5>
+        <h5 class="other__title">{{ item.name }}</h5>
 
-      <a href="#" class="btn">See Product</a>
+        <a href="#" class="btn">See Product</a>
+      </div>
     </div>
   </div>
 

@@ -46,4 +46,9 @@ export interface IProduct {
       };
     }
   ];
+  display: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
 }

@@ -26,6 +26,8 @@ namespace Audiophile.Data
                 .Include(x => x.Gallery.Third)
                 .Include(x => x.Others)
                 .ThenInclude(x => x.Image)
+                .AsSplitQuery()
+                .OrderByDescending(x => x.Name)
                 .ToListAsync();
 
             return products;
@@ -42,6 +44,8 @@ namespace Audiophile.Data
                 .Include(x => x.Gallery.Third)
                 .Include(x => x.Others)
                 .ThenInclude(x => x.Image)
+                .AsSplitQuery()
+                .OrderByDescending(x => x.Name)
                 .ToListAsync();
 
             return products;
@@ -57,6 +61,8 @@ namespace Audiophile.Data
                 .Include(x => x.Gallery.Third)
                 .Include(x => x.Others)
                 .ThenInclude(x => x.Image)
+                .AsSplitQuery()
+                .OrderByDescending(x => x.Name)
                 .FirstOrDefaultAsync(x => x.Id == id);
             
             return product;
