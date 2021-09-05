@@ -26,7 +26,6 @@ namespace Audiophile.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetProducts([FromQuery] string? category)
         {
             var products = await _productRepository.GetAllProductsAsync(category);

@@ -16,27 +16,16 @@ namespace Audiophile.Data
             _context = context;
         }
 
-        public async Task<IReadOnlyList<Product>> GetAllProductsAsync()
+        public async Task<IReadOnlyList<Product>> GetAllProductsAsync(string? category)
         {
-            var products = await _context.Products
-                .Include(x => x.Image)
-                .Include(x => x.Includes)
-                .Include(x => x.Gallery.First)
-                .Include(x => x.Gallery.Second)
-                .Include(x => x.Gallery.Third)
-                .Include(x => x.Others)
-                .ThenInclude(x => x.Image)
-                .AsSplitQuery()
-                .OrderByDescending(x => x.Name)
-                .ToListAsync();
+            var query = _context.Products.AsQueryable();
 
-            return products;
-        }
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                query = query.Where(x => x.Category == category);
+            }
 
-        public async Task<IReadOnlyList<Product>> GetHeadphones()
-        {
-            var products = await _context.Products
-                .Where(x => x.Category == "headphones")
+            var products = await query
                 .Include(x => x.Image)
                 .Include(x => x.Includes)
                 .Include(x => x.Gallery.First)
