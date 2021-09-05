@@ -25,9 +25,11 @@ namespace Audiophile.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetProducts([FromQuery] string? category)
         {
-            var products = await _productRepository.GetAllProductsAsync();
+            var products = await _productRepository.GetAllProductsAsync(category);
 
             var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products);
 
@@ -35,6 +37,8 @@ namespace Audiophile.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetProduct(int id)
         {
             var product = await _productRepository.GetProductByIdAsync(id);
@@ -42,16 +46,6 @@ namespace Audiophile.API.Controllers
             var productDto = _mapper.Map<Product, ProductDto>(product);
 
             return Ok(productDto);
-        }
-
-        [HttpGet("headphones")]
-        public async Task<IActionResult> GetHeadphones()
-        {
-            var products = await _productRepository.GetHeadphones();
-
-            var productsDto = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDto>>(products);
-
-            return Ok(productsDto);
         }
     }
 }
