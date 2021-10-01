@@ -7,7 +7,7 @@
       />
     </div>
 
-    <a href="#">
+    <a [routerLink]="['/']">
       <img
         class="navbar-logo"
         src="/assets/shared/desktop/logo.svg"
@@ -32,8 +32,22 @@
           >Headphones</a
         >
       </li>
-      <li class="nav-item"><a class="nav-link" href="#">Speakers</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Earphones</a></li>
+      <li class="nav-item" (click)="closeMenu()">
+        <a
+          class="nav-link"
+          [routerLink]="['/speakers']"
+          routerLinkActive="router-link-active"
+          >Speakers</a
+        >
+      </li>
+      <li class="nav-item" (click)="closeMenu()">
+        <a
+          class="nav-link"
+          [routerLink]="['/earphones']"
+          routerLinkActive="router-link-active"
+          >Earphones</a
+        >
+      </li>
     </ul>
 
     <a href="#" class="navbar-cart">
