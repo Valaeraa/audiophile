@@ -66,5 +66,6 @@
   &:focus,
   &:hover {
     color: $clr-accent-400;
+    cursor: pointer;
   }
 }
