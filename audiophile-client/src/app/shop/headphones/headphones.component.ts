@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from '../shared/models/product';
-import { HeadphonesService } from './headphones.service';
+import { IProduct } from 'src/app/shared/models/product';
+import { ShopService } from '../shop.service';
 
 @Component({
   selector: 'app-headphones',
@@ -8,16 +8,16 @@ import { HeadphonesService } from './headphones.service';
   styleUrls: ['./headphones.component.scss'],
 })
 export class HeadphonesComponent implements OnInit {
-  products!: IProduct[];
+  products: IProduct[] = [];
 
-  constructor(private headphonesService: HeadphonesService) {}
+  constructor(private shopService: ShopService) {}
 
   ngOnInit(): void {
     this.getHeadphones();
   }
 
   getHeadphones(): void {
-    this.headphonesService.getHeadphones().subscribe(
+    this.shopService.getProducts('headphones').subscribe(
       (response) => {
         this.products = response;
         this.products.map((p) => {

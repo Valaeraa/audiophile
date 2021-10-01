@@ -7,8 +7,22 @@ const routes: Routes = [
   {
     path: 'headphones',
     loadChildren: () =>
-      import('./headphones/headphones.module').then(
+      import('./shop/headphones/headphones.module').then(
         (mod) => mod.HeadphonesModule
+      ),
+  },
+  {
+    path: 'speakers',
+    loadChildren: () =>
+      import('./shop/speakers/speakers.module').then(
+        (mod) => mod.SpeakersModule
+      ),
+  },
+  {
+    path: 'earphones',
+    loadChildren: () =>
+      import('./shop/earphones/earphones.module').then(
+        (mod) => mod.EarphonesModule
       ),
   },
 ];

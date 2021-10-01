@@ -7,18 +7,19 @@ import { IProduct } from '../shared/models/product';
 @Injectable({
   providedIn: 'root',
 })
-export class HeadphonesService {
+export class ShopService {
   baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
-  getHeadphones(): Observable<IProduct[]> {
+  // TODO - Separate getProducts by category and all
+  getProducts(category = ''): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(
-      `${this.baseUrl}/products?category=headphones`
+      `${this.baseUrl}/products?category=${category}`
     );
   }
 
-  GetHeadphonesById(id: number): Observable<IProduct> {
+  getProductById(id: number): Observable<IProduct> {
     return this.http.get<IProduct>(`${this.baseUrl}/products/${id}`);
   }
 }

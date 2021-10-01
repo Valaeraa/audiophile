@@ -4,7 +4,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { AboutComponent } from './about/about.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { HeadphonesRoutingModule } from '../headphones/headphones-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { HeadphonesRoutingModule } from '../headphones/headphones-routing.module
     ProductComponent,
     ProductDetailsComponent,
   ],
-  imports: [CommonModule, HeadphonesRoutingModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     CategoriesComponent,
     AboutComponent,

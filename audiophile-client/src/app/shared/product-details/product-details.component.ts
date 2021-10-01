@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HeadphonesService } from 'src/app/headphones/headphones.service';
+import { ShopService } from 'src/app/shop/shop.service';
 import { IProduct } from '../models/product';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProductDetailsComponent implements OnInit {
   product!: IProduct;
 
   constructor(
-    private headphonesService: HeadphonesService,
+    private shopService: ShopService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -26,7 +26,7 @@ export class ProductDetailsComponent implements OnInit {
       ?.slice(0, 1) as string;
 
     const idValue = +id;
-    this.headphonesService.GetHeadphonesById(idValue).subscribe(
+    this.shopService.getProductById(idValue).subscribe(
       (product) => {
         this.product = product;
       },
