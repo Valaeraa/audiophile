@@ -1,0 +1,13 @@
+@import "abstracts/variables";
+
+.category-title {
+  font-size: 1.75rem;
+  font-weight: $fw-bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  background-color: $clr-dark-800;
+  margin-top: 0;
+  padding: 1.5em 0;
+}
