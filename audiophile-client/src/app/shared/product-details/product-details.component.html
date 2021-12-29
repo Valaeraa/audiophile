@@ -98,7 +98,11 @@
 
         <h5 class="other__title">{{ item.name }}</h5>
 
-        <a href="#" class="btn">See Product</a>
+        <a
+          class="btn"
+          routerLink="/{{ item.name }}/{{ product.id }}-{{ item.slug }}"
+          >See Product</a
+        >
       </div>
     </div>
   </div>
