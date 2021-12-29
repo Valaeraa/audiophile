@@ -56,5 +56,22 @@ namespace Audiophile.Data
             
             return product;
         }
+
+        public async Task<Product> GetProductBySlugAsync(string slug)
+        {
+            var product = await _context.Products
+                .Include(x => x.Image)
+                .Include(x => x.Includes)
+                .Include(x => x.Gallery.First)
+                .Include(x => x.Gallery.Second)
+                .Include(x => x.Gallery.Third)
+                .Include(x => x.Others)
+                .ThenInclude(x => x.Image)
+                .AsSplitQuery()
+                .OrderByDescending(x => x.Name)
+                .FirstOrDefaultAsync(x => x.Slug == slug);
+
+            return product;
+        }
     }
 }

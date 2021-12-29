@@ -35,12 +35,24 @@ namespace Audiophile.API.Controllers
             return Ok(productsDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetProduct(int id)
+        public async Task<IActionResult> GetProductById(int id)
         {
             var product = await _productRepository.GetProductByIdAsync(id);
+
+            var productDto = _mapper.Map<Product, ProductDto>(product);
+
+            return Ok(productDto);
+        }
+
+        [HttpGet("{slug}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetProductBySlug(string slug)
+        {
+            var product = await _productRepository.GetProductBySlugAsync(slug);
 
             var productDto = _mapper.Map<Product, ProductDto>(product);
 
