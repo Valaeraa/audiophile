@@ -22,4 +22,8 @@ export class ShopService {
   getProductById(id: number): Observable<IProduct> {
     return this.http.get<IProduct>(`${this.baseUrl}/products/${id}`);
   }
+
+  getProductBySlug(slug: string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.baseUrl}/products/${slug}`);
+  }
 }
