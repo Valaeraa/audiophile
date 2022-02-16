@@ -1,11 +1,14 @@
 <section class="container" *ngIf="product">
-  <a class="btn-back">Go Back</a>
+  <a class="btn-back" routerLink="/{{ product.category }}">Go Back</a>
 
   <div class="product">
     <picture class="product__img">
-      <source media="(min-width: 768px)" srcset="{{product.image.tablet}}" />
       <source media="(min-width: 992px)" srcset="{{product.image.desktop}}" />
-      <img src="{{ product.image.mobile }}" alt="best gear image" />
+      <source media="(min-width: 768px)" srcset="{{product.image.tablet}}" />
+      <img
+        src="{{ product.image.mobile }}"
+        alt="{{ product.name }} display image"
+      />
     </picture>
 
     <div class="product__body">
@@ -46,42 +49,53 @@
   </div>
 
   <div class="gallery">
-    <div class="gallery__wrapper">
-      <picture class="top-left">
-        <source
-          media="(min-width: 768px)"
-          srcset="{{product.gallery.first.tablet}}"
-        />
-        <source
-          media="(min-width: 992px)"
-          srcset="{{product.gallery.first.desktop}}"
-        />
-        <img src="{{ product.gallery.first.mobile }}" alt="best gear image" />
-      </picture>
+    <!-- <div class="gallery__wrapper">
+      
+    </div> -->
 
-      <picture class="bottom-left">
-        <source
-          media="(min-width: 768px)"
-          srcset="{{product.gallery.second.tablet}}"
-        />
-        <source
-          media="(min-width: 992px)"
-          srcset="{{product.gallery.second.desktop}}"
-        />
-        <img src="{{ product.gallery.second.mobile }}" alt="best gear image" />
-      </picture>
-    </div>
-
-    <picture class="right">
+    <picture class="top-left">
+      <source
+        media="(min-width: 992px)"
+        srcset="{{product.gallery.first.desktop}}"
+      />
       <source
         media="(min-width: 768px)"
-        srcset="{{product.gallery.third.tablet}}"
+        srcset="{{product.gallery.first.tablet}}"
       />
+      <img
+        src="{{ product.gallery.first.mobile }}"
+        alt="{{ product.name }} image 1"
+      />
+    </picture>
+
+    <picture class="bottom-left">
+      <source
+        media="(min-width: 992px)"
+        srcset="{{product.gallery.second.desktop}}"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="{{product.gallery.second.tablet}}"
+      />
+      <img
+        src="{{ product.gallery.second.mobile }}"
+        alt="{{ product.name }} image 2"
+      />
+    </picture>
+
+    <picture class="right">
       <source
         media="(min-width: 992px)"
         srcset="{{product.gallery.third.desktop}}"
       />
-      <img src="{{ product.gallery.third.mobile }}" alt="best gear image" />
+      <source
+        media="(min-width: 768px)"
+        srcset="{{product.gallery.third.tablet}}"
+      />
+      <img
+        src="{{ product.gallery.third.mobile }}"
+        alt="{{ product.name }} image 3"
+      />
     </picture>
   </div>
 
@@ -91,18 +105,15 @@
     <div class="others-wrapper">
       <div class="other" *ngFor="let item of product.others">
         <picture>
-          <source media="(min-width: 768px)" srcset="{{item.image.tablet}}" />
           <source media="(min-width: 992px)" srcset="{{item.image.desktop}}" />
-          <img src="{{ item.image.mobile }}" alt="best gear image" />
+          <source media="(min-width: 768px)" srcset="{{item.image.tablet}}" />
+          <img src="{{ item.image.mobile }}" alt="{{ item.name }} image" />
         </picture>
 
         <h5 class="other__title">{{ item.name }}</h5>
 
-        <a
-          class="btn"
-          routerLink="/{{ item.name }}/{{ product.id }}-{{ item.slug }}"
-          >See Product</a
-        >
+        <!-- TODO - Add routing for other products-->>
+        <a class="btn">See Product</a>
       </div>
     </div>
   </div>

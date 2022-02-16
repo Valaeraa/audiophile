@@ -2,7 +2,8 @@
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 0.5em;
 }
@@ -14,6 +15,7 @@ img {
   text-decoration: none;
   color: rgba($color: #000000, $alpha: 0.5);
   margin-top: 1em;
+  cursor: pointer;
 
   &:focus,
   &:hover {
@@ -58,6 +60,19 @@ img {
 .product {
   margin-top: 1.5em;
   margin-bottom: 4em;
+  display: grid;
+  gap: 2em;
+  grid-template-areas:
+    "p-top"
+    "p-bottom";
+}
+
+.product__img {
+  grid-area: p-top;
+}
+
+.product__body {
+  grid-area: p-bottom;
 }
 
 .product__new {
@@ -112,20 +127,29 @@ img {
 }
 
 .gallery {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1em;
-  margin: 4em auto;
+  grid-template-areas:
+    "top"
+    "left"
+    "bottom";
 }
 
-.gallery__wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+.top-left {
+  grid-area: top;
+}
+
+.bottom-left {
+  grid-area: left;
+}
+
+.right {
+  grid-area: bottom;
 }
 
 .others {
   margin: 4em auto;
+  margin-bottom: 8em;
 }
 
 .other {
@@ -143,21 +167,21 @@ img {
   font-weight: $fw-bold;
   letter-spacing: 1.71px;
   text-transform: uppercase;
-  margin: 2em auto;
+  margin: 1.5em auto;
 }
 
 @media (min-width: 768px) {
   .product {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 2em;
+    grid-template-areas: "p-top p-bottom";
+    gap: 4em;
   }
 
   .product__img {
-    max-width: 281px;
-    // min-width: 100%;
-    // min-height: 100%;
-    min-height: 480px;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    // margin: auto 0;
+    overflow: hidden;
   }
 
   .product__body {
@@ -181,7 +205,9 @@ img {
   }
 
   .gallery {
-    flex-direction: row;
+    grid-template-areas:
+      "top bottom"
+      "left bottom";
   }
 
   .others {

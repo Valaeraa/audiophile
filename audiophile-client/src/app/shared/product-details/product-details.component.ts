@@ -20,13 +20,26 @@ export class ProductDetailsComponent implements OnInit {
     this.loadProduct();
   }
 
-  loadProduct(): void {
-    const id = this.activatedRoute.snapshot.paramMap
-      .get('id-slug')
-      ?.slice(0, 1) as string;
+  // loadProduct(): void {
+  //   const id = this.activatedRoute.snapshot.paramMap
+  //     .get('id-slug')
+  //     ?.slice(0, 1) as string;
 
-    const idValue = +id;
-    this.shopService.getProductById(idValue).subscribe(
+  //   const idValue = +id;
+  //   this.shopService.getProductById(idValue).subscribe(
+  //     (product) => {
+  //       this.product = product;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+
+  loadProduct(): void {
+    const slug = this.activatedRoute.snapshot.paramMap.get('slug') as string;
+
+    this.shopService.getProductBySlug(slug).subscribe(
       (product) => {
         this.product = product;
       },

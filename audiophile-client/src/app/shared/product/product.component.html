@@ -2,7 +2,7 @@
   <picture *ngIf="product.display">
     <source media="(min-width: 768px)" srcset="{{product.display.tablet}}" />
     <source media="(min-width: 992px)" srcset="{{product.display.desktop}}" />
-    <img src="{{ product.display.mobile }}" alt="best gear image" />
+    <img src="{{ product.display.mobile }}" alt="{{ product.name }} image" />
   </picture>
 
   <div class="product__body">
@@ -12,9 +12,7 @@
       {{ product.description }}
     </p>
 
-    <a
-      class="btn"
-      routerLink="/{{ product.category }}/{{ product.id }}-{{ product.slug }}"
+    <a class="btn" routerLink="/{{ product.category }}/{{ product.slug }}"
       >See Product</a
     >
   </div>
