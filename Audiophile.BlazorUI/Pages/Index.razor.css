@@ -1,0 +1,48 @@
+﻿img {
+    display: block;
+    max-width: 100%;
+}
+
+.product {
+    //background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../assets/home/mobile/image-header.jpg");
+    background: black;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding-top: 6.5em;
+    padding-bottom: 9em;
+    text-align: center;
+}
+
+.product-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: -2.5em;
+}
+
+.product__new {
+    font-size: 0.875rem;
+    //font-weight: $fw-regular;
+    letter-spacing: 0.625rem;
+    text-transform: uppercase;
+    color: rgba($color: #fff, $alpha: 0.5);
+}
+
+.product__title {
+    font-size: 2.25rem;
+    //font-weight: $fw-bold;
+    text-transform: uppercase;
+    line-height: 2.5rem;
+    letter-spacing: 0.081rem;
+}
+
+.product__text {
+    font-size: 0.938rem;
+    //font-weight: $fw-light;
+    line-height: 1.563rem;
+    max-width: 40ch;
+    margin: 0 auto;
+    color: rgba($color: #fff, $alpha: 0.75);
+    margin-bottom: 2em;
+}

@@ -1,0 +1,87 @@
+﻿@page "/"
+
+@inject IProductService ProductService
+
+<PageTitle>Home</PageTitle>
+
+@if (product == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <article class="product">
+        <div class="product-wrapper">
+            @if (product.New == true)
+            {
+                <p class="product__new">New Product</p>
+            }
+
+            <h1 class="product__title">@product.Name</h1>
+            <p class="product__text">
+                @product.Description
+            </p>
+            <a class="btn btn-primary" href="#">See Product</a>
+        </div>
+    </article>
+}
+
+<Categories></Categories>
+
+<article class="container product--orange">
+    <img class="pattern"
+         src="/assets/home/desktop/pattern-circles.svg"
+         alt="" />
+    <picture>
+        <source media="(min-width: 768px)"
+                srcset="/assets/home/tablet/image-speaker-zx9.png" />
+        <source media="(min-width: 992px)"
+                srcset="/assets/home/desktop/image-speaker-zx9.png" />
+        <img class="product__img"
+             src="/assets/home/mobile/image-speaker-zx9.png"
+             alt="best gear image" />
+    </picture>
+
+    <h2 class="product__title">ZX9 Speaker</h2>
+
+    <p class="product__text">
+        Upgrade to premium speakers that are phenomenally built to deliver truly
+        remarkable sound.
+    </p>
+
+    <a class="btn btn-dark"
+       [routerLink]="['/speakers/6-zx9-speaker']"
+       routerLinkActive="router-link-active">See Product</a>
+</article>
+
+<article class="container product--gray">
+    <div class="product--gray__wrapper">
+        <h2 class="product__title">ZX7 Speaker</h2>
+        <a class="btn btn-transparent"
+           [routerLink]="['/speakers/5-zx7-speaker']"
+           routerLinkActive="router-link-active">See Product</a>
+    </div>
+
+    <picture>
+        <source media="(min-width: 768px)"
+                srcset="/assets/home/tablet/image-speaker-zx7.jpg" />
+        <source media="(min-width: 992px)"
+                srcset="/assets/home/desktop/image-speaker-zx7.jpg" />
+        <img class="product__img"
+             src="/assets/home/mobile/image-speaker-zx7.jpg"
+             alt="best gear image" />
+    </picture>
+</article>
+
+<About></About>
+
+@code
+{
+    private List<Product>? products;
+    private Product? product;
+
+    protected async override Task OnInitializedAsync()
+    {
+        product = await ProductService.GetProductById(4);
+    }
+}

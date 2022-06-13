@@ -1,0 +1,37 @@
+﻿@page "/index"
+
+@inject IProductService ProductService
+
+<PageTitle>Index</PageTitle>
+
+@if (product == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <article class="product">
+        <div class="product-wrapper">
+            @if (product.New == true)
+            {
+                <p class="product__new">New Product</p>
+            }
+
+            <h1 class="product__title">@product.Name</h1>
+            <p class="product__text">
+                @product.Description
+            </p>
+            <a class="btn btn-primary" href="#">See Product</a>
+        </div>
+    </article>
+}
+
+@code {
+    private List<Product> products;
+    private Product product;
+
+    protected async override Task OnInitializedAsync()
+    {
+        product = await ProductService.GetProductBySlug("xx59-headphones");
+    }
+}

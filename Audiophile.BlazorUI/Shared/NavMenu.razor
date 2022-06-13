@@ -1,0 +1,56 @@
+﻿<nav class="navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-toggler">
+            <img src="/assets/shared/tablet/icon-hamburger.svg"
+                 alt="hamburger icon" />
+        </div>
+
+        <NavLink class="nav-link" href="/">
+            <img class="navbar-logo"
+                 src="/assets/shared/desktop/logo.svg"
+                 alt="logo" />
+        </NavLink>
+
+        <ul class="nav">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/">
+                    Home
+                </NavLink>
+            </li>
+
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/headphones">
+                    Headphones
+                </NavLink>
+            </li>
+
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/speakers">
+                    Speakers
+                </NavLink>
+            </li>
+
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/earphones">
+                    Earphones
+                </NavLink>
+            </li>
+        </ul>
+
+        <NavLink class="navbar-cart" href="/">
+            <img src="/assets/shared/desktop/icon-cart.svg" alt="cart icon" />
+        </NavLink>
+    </div>
+</nav>
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

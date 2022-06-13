@@ -52,7 +52,7 @@ namespace Audiophile.API
                 {
                     policy.AllowAnyHeader()
                         .AllowAnyMethod()
-                        .WithOrigins("http://localhost:4200");
+                        .WithOrigins("http://localhost:4200", "https://localhost:7045", "https://localhost:5045");
                 });
             });
         }
