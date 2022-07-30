@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ShopService } from 'src/app/shop/shop.service';
 import { IProduct } from '../models/product';
 
@@ -13,7 +13,8 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private shopService: ShopService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -47,5 +48,17 @@ export class ProductDetailsComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  btnOtherProduct(slug: string) {
+    let category: string = slug.split('-').slice(-1).toString();
+
+    if (category === 'speaker') {
+      category = 'speakers';
+    }
+
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl(`/${category}/${slug}`);
+    });
   }
 }
